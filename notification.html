@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Notification</title>
+</head>
+<body>
+	
+<script type="text/javascript">
+	 
+  navigator.serviceWorker.register('sw.js');
+Notification.requestPermission(function(result) {
+  if (result === 'granted') {
+    navigator.serviceWorker.ready.then(function(registration) {
+      registration.showNotification('Notification with ServiceWorker');
+    });
+  }
+});
+</script>
+</body>
+</html>
